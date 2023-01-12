@@ -6,7 +6,7 @@ import plotly.express as px
 
 # cheapest way to store dataset, larger than 100 MB as I'm not using GitLFS, is in GoogleDrive
 DATA_URL = (
-"https://drive.google.com/file/d/1q3f1p9cu7Vdfeph2TnxZgZ05ARxYab0E/view?usp=sharing"
+"https://drive.google.com/file/d/1q3f1p9cu7Vdfeph2TnxZgZ05ARxYab0E/view"
 )
 
 st.title("Motor Vehicle Collisions in NYC")
