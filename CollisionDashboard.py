@@ -4,11 +4,6 @@ import numpy as np
 import pydeck as pdk
 import plotly.express as px
 
-# cheapest way to store dataset, larger than 100 MB as I'm not using GitLFS, is in GoogleDrive
-DATA_URL = (
-"https://drive.google.com/file/d/1q3f1p9cu7Vdfeph2TnxZgZ05ARxYab0E/view"
-)
-
 st.title("Motor Vehicle Collisions in NYC")
 st.markdown("This is a Streamlit Dashboard can be used "
 "to analyze motor vehicle collisions")
@@ -16,7 +11,7 @@ st.info("NYC Collision datasets between 2013 and 2020 is being used to analyze f
 
 @st.cache(persist=True)
 def load_data(nrows):
-    data = pd.read_csv(DATA_URL, nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+    data = pd.read_csv("MotorVehicleCollisionsCrashes.csv", nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
     data.dropna(subset=['LATITUDE', 'LONGITUDE'], inplace=True)
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis='columns', inplace=True)
